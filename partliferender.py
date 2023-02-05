@@ -16,8 +16,6 @@ class modball(turtle.Turtle):
             self.cvalues = -1
             self.speed(0)
 
-
-
 class runfunc(): #no need to add .txt at end of file
     def __init__(self,rfile):
         self.rfilenm = rfile
@@ -98,7 +96,7 @@ class runfunc(): #no need to add .txt at end of file
 
         bturt = turtle.Turtle()
         bturt.penup()
-        bturt.color('gray')
+        bturt.color('red')
         bturt.goto(-self.havearea-250,self.havearea-140)
         bturt.shapesize(stretch_wid=1.5,stretch_len=1.5)
         bturt.shape('circle')
@@ -131,24 +129,6 @@ class runfunc(): #no need to add .txt at end of file
         re.shape('circle')
         re.write("      Replay This Render", font=("Verdana",12,"normal"))
         re.onclick(self.replayrender)
-
-        de = turtle.Turtle()
-        de.penup()
-        de.color('grey')
-        de.goto(-self.havearea-250,self.havearea-460)
-        de.shapesize(stretch_wid=1.5,stretch_len=1.5)
-        de.shape('circle')
-        de.write("      Delete Unwanted Renders", font=("Verdana",12,"normal"))
-        de.onclick(self.delprev)
-
-        rerc = turtle.Turtle()
-        rerc.penup()
-        rerc.color('grey')
-        rerc.goto(-self.havearea-250,self.havearea-540)
-        rerc.shapesize(stretch_wid=1.5,stretch_len=1.5)
-        rerc.shape('circle')
-        rerc.write("      Continuing Run Now", font=("Verdana",12,"normal"))
-        rerc.onclick(self.contrun)
 
         while True: #rendering loops
             nowchar = renddoc.read(1)
@@ -220,17 +200,12 @@ class runfunc(): #no need to add .txt at end of file
 
     def savefile(self,x=0,y=0):
         filename = turtle.textinput("New File","Please Enter Your New File's Name :)")
-        if filename == None:
-            print("Cancled Order")
-        else:
-            shutil.copy("./renderdata/renderdoc.txt","./renderdata/"+filename + ".txt")
+        shutil.copy("./renderdata/renderdoc.txt","./renderdata/"+filename + ".txt")
     def choosefile(self,x=0,y=0):
         allposses = os.listdir("./renderdata")
         print('check')
         filename = turtle.textinput("Render Exist","Enter File Render (DO NOT ADD .txt): "+str(allposses))
-        if filename == None:
-            print("CANCLED order")
-        elif filename+".txt" not in allposses:
+        if filename+".txt" not in allposses:
             print('Illegal File!!')
         else:
             self.window.clearscreen()
@@ -238,19 +213,3 @@ class runfunc(): #no need to add .txt at end of file
     def replayrender(self,x=0,y=0):
         self.window.clearscreen()
         runfunc(self.rfilenm)
-    
-    def delprev(self,x=0,y=0):
-        allposses = os.listdir("./renderdata")
-        print('wait')
-        filename = turtle.textinput("Delete unwanted renders PERMANANT","Delete some :( (DO NOT ADD .txt): "+str(allposses))
-        if filename == None:
-            print("CANCLED order")
-        elif filename == "renderdoc":
-            print("CANOOT DLELETE ORIG!! YOU DOMMEY")
-        elif filename+".txt" not in allposses:
-            print('Illegal File!!')
-        else:
-            os.remove("./renderdata/"+filename+".txt")
-    def contrun(self,x=0,y=0):
-        print("FEATURE NOT AVALABLE YET :(")
-
