@@ -15,6 +15,7 @@ HOW IT WORKS:
 3. When you are happy, click the red render button on the bottom left.
 4. It will take you to another program, which renders the simulaton you just ran. It runs MUCH more faster.
 5. You can select other files you want to replay, which are really beautiful
+6. If you want to see your rule changes on the spot (increase frame rate of simulation), decrease # of particles or decrease number of colors
 
 
 
