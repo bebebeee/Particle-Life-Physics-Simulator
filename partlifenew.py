@@ -6,7 +6,7 @@ import time
 import sys
 import partliferender
  
-from numba import jit
+#from numba import jit
 
 #import partliferender
 
