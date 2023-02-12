@@ -26,3 +26,6 @@ that render, so that you can replay it later. Note that when you exit the progra
 to save it using one of the buttons). 
 
 This program might simulate very very slowly. To make it a reasonable speed, you can decrease the amount of particles.
+
+The white block is the eraser
+the red block can generate new particles
